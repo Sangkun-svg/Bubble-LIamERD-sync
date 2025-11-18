@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Bubble LiamERD Sync",
+  "description": "기본 팝업과 콘텐츠 스크립트가 포함된 최소 크롬 익스텐션 예제입니다.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "Bubble LiamERD Sync",
+    "default_popup": "src/popup/popup.html"
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["src/content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["storage"],
+  "host_permissions": ["https://*/*", "http://*/*"]
+}
